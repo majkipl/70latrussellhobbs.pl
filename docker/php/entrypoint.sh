@@ -11,14 +11,17 @@ composer install --no-interaction --no-progress
 
 npm install -g n
 n 20.2.0
-npm install -g npm@9.7.2
 npm install
-#npm install
-#npm run build
+npm run build
 
-#php bin/console cache:clear
-#php bin/console doctrine:migrations:migrate --no-interaction
-#php bin/console doctrine:fixtures:load --no-interaction
+php artisan key:generate            # generujemy klucz
+php artisan migrate:fresh --seed    # robimy migracje wraz z seed'ami #
+php artisan cache:clear             # czyścimy cache
+php artisan config:clear            # czyścimy konfiguracje
+php artisan route:clear             # czyścimy routing
+
+cd public
+ln -sf ../storage/app/public/ storage
 
 # utrzymuje kontener przy życiu - nie zamyka apache
 # wyświetla logi apacha
