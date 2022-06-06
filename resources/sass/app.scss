@@ -1,8 +1,31 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+@import "./styles/typography";
+@import "./styles/variables";
+@import "./styles/root";
+@import "./styles/button";
+
+@import "./styles/animate";
+
+@import "./styles/header";
+@import "./styles/footer";
+
+@import "./styles/home/home-top";
+@import "./styles/home/home-steps";
+@import "./styles/home/home-forfree";
+@import "./styles/home/home-categories";
+@import "./styles/home/home-faq";
+@import "./styles/home/home-contact";
+
+@import "./styles/form/form-app";
+
+@import "./styles/thx/thx-app";
+
+@import "./styles/error/error-info";
+
+@import "./styles/products/products";
+
+@import "./styles/modal/modal";
+
+@import "./styles/logos";
