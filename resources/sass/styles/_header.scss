@@ -1,0 +1,102 @@
+.header {
+    .navbar {
+        background-color: $white;
+        padding: 10px 20px;
+
+        @media #{$min-xl} {
+            padding: 0px 20px;
+        }
+    }
+
+    .logo {
+        width: 70%;
+        padding: 2px 3px;
+
+        @media #{$min-sm} {
+            width: 255px;
+        }
+    }
+
+    .navbar-toggler {
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        border: none;
+
+        .toggler-icon {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $black;
+            width: 35px;
+            height: 4px;
+            border-radius: 2px;
+            transition: transform 0.25s;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                background-color: $black;
+                width: 35px;
+                height: 4px;
+                border-radius: 2px;
+                transition: transform 0.25s;
+            }
+
+            &::before {
+                top: -10px;
+            }
+
+            &::after {
+                top: 10px;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            .toggler-icon {
+                transform: translate(-50%, -50%) rotate(-45deg);
+
+                &::before {
+                    transform: translateY(10px) rotate(90deg);
+                }
+
+                &::after {
+                    transform: translateY(-10px) rotate(90deg);
+                }
+            }
+        }
+    }
+
+    #navbar {
+        margin-top: 17px;
+
+        @media #{$min-lg} {
+            margin-top: 0;
+        }
+
+        ul {
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .nav-link {
+            color: $blue_dark;
+            text-align: center;
+            width: 100%;
+            font-size: 16px;
+            line-height: 1;
+            position: relative;
+            font-family: $font-secondary;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            @media #{$min-xl} {
+                padding-left: 100px;
+            }
+        }
+    }
+}

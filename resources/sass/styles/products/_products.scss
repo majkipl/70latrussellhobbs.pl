@@ -1,0 +1,37 @@
+.section-top {
+    background-color: $skin;
+}
+
+.section-products {
+    .container {
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        h1 {
+            font-family: $font-secondary;
+            margin-bottom: 40px;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+
+            img {
+                max-width: 100%;
+                width: 200px;
+            }
+
+            .title {
+                margin: 30px 0;
+                text-align: center;
+            }
+
+            .button {
+                max-width: 150px;
+            }
+        }
+    }
+}

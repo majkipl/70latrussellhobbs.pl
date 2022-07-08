@@ -1,0 +1,112 @@
+.home-categories {
+    position: relative;
+    color: $blue;
+    padding-top: 100px;
+    background-color: $gray;
+
+    h2 {
+        margin-bottom: 100px;
+    }
+
+    .baner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vw;
+        margin-bottom: 30px;
+        position: relative;
+
+        @media #{$min-sm} {
+            height: auto;
+        }
+
+        @media #{$min-lg} {
+            margin-bottom: 60px;
+        }
+
+        @media #{$min-xl} {
+            margin-bottom: 100px;
+        }
+
+        .clipping {
+            overflow: hidden;
+            position: absolute;
+            height: 100%;
+            width: calc(100% - 30px);
+            z-index: 0;
+            left: 15px;
+            top: 0;
+
+            img {
+                position: relative;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        .title {
+            color: $white;
+            z-index: 2;
+            font-family: $font-secondary;
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+
+    .product {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+
+        @media #{$min-lg} {
+            margin-bottom: 60px;
+        }
+
+        @media #{$min-xl} {
+            margin-bottom: 100px;
+        }
+
+        img {
+            margin-bottom: 30px;
+            margin-top: 10px;
+            width: auto;
+            object-fit: contain;
+            max-width: 100%;
+            z-index: 1;
+
+            @media #{$min-sm} {
+                max-height: 150px;
+                padding-bottom: 0;
+            }
+
+            @media #{$min-md} {
+                max-height: 250px;
+                padding-bottom: 0;
+            }
+
+            @media #{$min-lg} {
+                max-height: 350px;
+                padding-bottom: 0;
+            }
+        }
+
+        .button {
+            max-width: 300px;
+        }
+    }
+}

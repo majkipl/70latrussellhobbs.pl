@@ -1,0 +1,197 @@
+.home-collection {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    border: 0;
+
+    #form {
+        margin-top: 50px;
+    }
+
+    .item {
+        padding-top: 100px;
+
+        &.template {
+            .item-image {
+                order: 1;
+            }
+            .item-desc {
+                order: 2;
+            }
+            .item-hr {
+                order: 3;
+            }
+
+            &:nth-child(odd) {
+                .item-image {
+                    order: 1;
+
+                    @media #{$min-md} {
+                        order: 2;
+                    }
+                }
+                .item-desc {
+                    order: 2;
+
+                    @media #{$min-md} {
+                        order: 1;
+                    }
+                }
+            }
+
+            &.other {
+                padding-top: 0px;
+
+                .item-other {
+                    padding-top: 100px;
+
+                    .item-title {
+                        h2.buckingham {
+                            @media #{$min-md} {
+                                min-height: 135px;
+                            }
+                            @media #{$min-lg} {
+                                min-height: 60px;
+                            }
+
+                            @media #{$min-xl} {
+                                min-height: 105px;
+                            }
+                        }
+                    }
+
+                    .item-desc {
+                        padding-bottom: 0;
+
+                        .button {
+                            margin-bottom: 30px;
+
+                            @media #{$min-md} {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .item-title {
+            h2 {
+                border-bottom: 0;
+            }
+        }
+
+        .item-desc {
+            padding-bottom: 30px;
+        }
+
+        .item-image {
+            padding-bottom: 30px;
+        }
+
+        .kwicks {
+            height: 300px;
+
+            li {
+                width: 445px;
+                height: 300px;
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    max-width: 445px;
+
+                    @media #{$min-md} {
+                        width: 330px;
+                    }
+
+                    @media #{$min-lg} {
+                        width: 370px;
+                    }
+
+                    @media #{$min-xl} {
+                        width: 350px;
+                    }
+                }
+            }
+        }
+
+        .collection-colors {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 30px;
+
+            @media #{$min-md} {
+                margin-top: 0;
+            }
+
+            a {
+                width: 30px;
+                height: 30px;
+                border: 2px solid $blue;
+                display: block;
+                border-radius: 50%;
+                margin: 0 7.5px;
+
+                &:hover {
+                }
+
+                &.select {
+                    border: 4px solid $blue;
+                }
+
+                &.cc-black {
+                    background-color: #000;
+                }
+
+                &.cc-copper {
+                    background-color: #d79574;
+                }
+
+                &.cc-cream {
+                    background-color: #dfd8b6;
+                }
+
+                &.cc-gray {
+                    background-color: #596c7a;
+                }
+
+                &.cc-red {
+                    background-color: #cf283f;
+                }
+
+                &.cc-stone {
+                    background-color: #b7b2ab;
+                }
+
+                &.cc-white {
+                    background-color: #fff;
+                }
+            }
+        }
+
+        .hr {
+            border-bottom: 1px solid #484848;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            padding-bottom: 15px;
+            border-bottom: 3px solid $blue;
+            margin-bottom: 30px;
+            font-family: $font-secondary;
+        }
+
+        p {
+            margin-bottom: 70px;
+        }
+
+        .button {
+            margin-bottom: 30px;
+        }
+    }
+}

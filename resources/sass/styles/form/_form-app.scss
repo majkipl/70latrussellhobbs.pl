@@ -1,0 +1,133 @@
+.form-app-top {
+    position: relative;
+    background-color: $skin;
+}
+
+.form-app-content {
+    position: relative;
+
+    .container {
+        padding-top: 100px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+.form-app-form {
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    .button {
+        width: 100%;
+        max-width: 250px;
+
+        &.submit {
+            margin-top: 50px;
+        }
+
+        &.upload {
+            margin-bottom: 25px;
+
+            &.upload-last {
+                margin-bottom: 90px;
+            }
+        }
+    }
+
+    label[for="is_product_2"] {
+        width: 260px;
+        margin: 0px auto 0px auto;
+        display: block;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .field-product-2 {
+        display: none;
+
+        &.is-show {
+            display: block;
+        }
+    }
+
+    .slim {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        /*
+        &.slim_img_receipt_1 {
+            &:after {
+                content: "Dodaj zdjęcie dowodu zakupu";
+            }
+        }
+
+        &.slim_img_ean_1 {
+            &:after {
+                content: "Dodaj zdjęcie WYCIĘTEGO kodu kreskowego";
+            }
+        }
+
+        &.slim_img_ean_2 {
+            &:after {
+                content: "Dodaj zdjęcie WYCIĘTEGO kodu kreskowego";
+            }
+        }
+        */
+
+        &[data-state="empty"] {
+            &:before {
+                content: "";
+                background-image: url("../images/svg/form/upload.svg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 36px;
+                height: 26px;
+                margin-bottom: 15px;
+                display: block;
+            }
+
+            input[type="file"] {
+                margin-bottom: 0 !important;
+            }
+
+            &:after {
+                display: block;
+            }
+
+            .slim-area {
+                /* height: 0; */
+
+                .slim-status {
+                    position: relative;
+                    padding: 0 1.5em;
+                }
+            }
+        }
+
+        &[data-state="empty"] > img {
+            display: none !important;
+        }
+
+        .slim[data-ratio*=":"] {
+            .slim-status {
+                position: relative;
+                padding: 0 1.5em;
+            }
+        }
+
+        &[data-state="preview"] {
+            &:before {
+                display: none;
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

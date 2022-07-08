@@ -1,0 +1,90 @@
+.home-media {
+    .video-container {
+        position: relative;
+        margin-bottom: 30px;
+
+        video {
+        }
+
+        &-black {
+            &:before {
+                background-color: $black;
+            }
+        }
+
+        &-blue {
+            &:before {
+                background-color: $blue;
+            }
+        }
+
+        &-blue-dark {
+            &:before {
+                background-color: $blue_dark;
+            }
+        }
+
+        &-gray {
+            &:before {
+                background-color: $gray;
+            }
+        }
+
+        &-gray-dark {
+            &:before {
+                background-color: $gray_dark;
+            }
+        }
+
+        &-red {
+            &:before {
+                background-color: $red;
+            }
+        }
+
+        &-red-dark {
+            &:before {
+                background-color: $red_dark;
+            }
+        }
+
+        &-white {
+            &:before {
+                background-color: $white;
+            }
+        }
+
+        &:before {
+            z-index: 0;
+            position: absolute;
+            transform: translate(10px, 10px);
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .video-js {
+        .vjs-big-play-button {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            background-image: url(/static/pl/img/home/play-icon.png);
+            background-repeat: no-repeat;
+            background-size: auto 75%;
+            background-position: center center;
+            border-radius: 0;
+        }
+
+        .vjs-big-play-button {
+            .vjs-icon-placeholder:before {
+                display: none;
+            }
+        }
+    }
+}

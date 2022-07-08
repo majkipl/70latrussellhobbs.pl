@@ -1,0 +1,293 @@
+.modal {
+    .modal-content {
+        border: none;
+        border-radius: 0px;
+        color: $blue;
+    }
+
+    .modal-header {
+        border: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .modal-title {
+            padding: 0px 30px 0px 30px;
+            text-transform: none;
+            width: 100%;
+            /*height: 40px;*/
+            font-size: 18px;
+            line-height: 28px;
+
+            @media #{$min-md} {
+                font-size: 22px;
+                line-height: 32px;
+            }
+
+            @media #{$min-lg} {
+                font-size: 26px;
+                line-height: 36px;
+            }
+
+            @media #{$min-xl} {
+                font-size: 30px;
+                line-height: 40px;
+            }
+        }
+
+        .modal-toggler {
+            position: relative;
+            background-color: $white;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border: none;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background-color: $blue;
+                width: 30px;
+                height: 4px;
+                transition: transform 0.25s;
+            }
+
+            &::before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            &::after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+
+            &:hover,
+            &:focus-visible {
+                background-color: $red;
+
+                &::before,
+                &::after {
+                    background-color: $white;
+                }
+
+                &::before {
+                    transform: translate(-50%, -50%) rotate(135deg);
+                }
+
+                &::after {
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+            }
+        }
+    }
+
+    .modal-body {
+        padding: 30px 15px;
+        max-height: 80vh;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            .row {
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .item-product-image {
+                margin: 30px 0 30px 0;
+
+                img {
+                    width: 255px;
+                    max-width: 100%;
+                }
+            }
+
+            .item-shop-image {
+                height: 50px;
+                background-image: url("../images/modal/logos.jpg");
+                background-position: center 0px;
+                background-repeat: no-repeat;
+
+                /* SKLEPY */
+
+                &[href*="euro.com.pl"] {
+                    background-position: center calc(0px - 25px);
+                }
+
+                &[href*="oleole.pl"] {
+                    background-position: center calc(-100px - 25px);
+                }
+
+                &[href*="mediaexpert.pl"] {
+                    background-position: center calc(-200px - 25px);
+                }
+
+                &[href*="avans.pl"] {
+                    background-position: center calc(-300px - 25px);
+                }
+
+                &[href*="electro.pl"] {
+                    background-position: center calc(-400px - 25px);
+                }
+
+                &[href*="komputronik.pl"] {
+                    background-position: center calc(-500px - 25px);
+                }
+
+                &[href*="karen.pl"] {
+                    background-position: center calc(-600px - 25px);
+                }
+
+                &[href*="neonet.pl"] {
+                    background-position: center calc(-700px - 25px);
+                }
+
+                &[href*="neo24.pl"] {
+                    background-position: center calc(-800px - 25px);
+                }
+
+                &[href*="mediamarkt.pl"] {
+                    background-position: center calc(-900px - 25px);
+                }
+
+                &[href*="payback.pl"] {
+                    background-position: center calc(-1000px - 25px);
+                }
+
+                &[href*="enea.pl"] {
+                    background-position: center calc(-1100px - 25px);
+                }
+
+                &[href*="energa.pl"] {
+                    background-position: center calc(-1200px - 25px);
+                }
+
+                &[href*="maxelektro.pl"] {
+                    background-position: center calc(-1300px - 25px);
+                }
+
+                &[href*="mambonus.pl"] {
+                    background-position: center calc(-1400px - 25px);
+                }
+
+                &[href*="zadowolenie.pl"] {
+                    background-position: center calc(-1500px - 25px);
+                }
+
+                &[href*="kakto.pl"] {
+                    background-position: center calc(-1600px - 25px);
+                }
+
+                &[href*="al.to"] {
+                    background-position: center calc(-1700px - 25px);
+                }
+
+                &[href*="e-leclercgdansk.pl"] {
+                    background-position: center calc(-1800px - 25px);
+                }
+
+                &[href*="e-leclerc.net.pl"] {
+                    background-position: center calc(-1900px - 25px);
+                }
+
+                &[href*="leclerc-bielany.pl"] {
+                    background-position: center calc(-2000px - 25px);
+                }
+
+                &[href*="eleclerc.com.pl"] {
+                    background-position: center calc(-2100px - 25px);
+                }
+
+                &[href*="wroclaw.leclerc.pl"] {
+                    background-position: center calc(-2200px - 25px);
+                }
+
+                &[href*="gliwice.leclerc.pl"] {
+                    background-position: center calc(-2300px - 25px);
+                }
+
+                &[href*="katowice.leclerc.pl"] {
+                    background-position: center calc(-2400px - 25px);
+                }
+
+                &[href*="kielce.leclerc.pl"] {
+                    background-position: center calc(-2500px - 25px);
+                }
+
+                &[href*="lublin-turystyczna.leclerc.pl"] {
+                    background-position: center calc(-2600px - 25px);
+                }
+
+                &[href*="lublin.leclerc.pl"] {
+                    background-position: center calc(-2700px - 25px);
+                }
+
+                &[href*="leclerc-rzeszow.pl"] {
+                    background-position: center calc(-2800px - 25px);
+                }
+
+                &[href*="mycenter.pl"] {
+                    background-position: center calc(-2900px - 25px);
+                }
+
+                &[href*="mediadomek.pl"] {
+                    background-position: center calc(-3000px - 25px);
+                }
+
+                &[href*="agdperfekt.pl"] {
+                    background-position: center calc(-3100px - 25px);
+                }
+
+                &[href*="maxkuchnie.pl"] {
+                    background-position: center calc(-3200px - 25px);
+                }
+
+                &[href*="morele.net"] {
+                    background-position: center calc(-3300px - 25px);
+                }
+
+                &[href*="empik.com"] {
+                    background-position: center calc(-3400px - 25px);
+                }
+
+                &[href*="garneczki.pl"] {
+                    background-position: center calc(-3500px - 25px);
+                }
+
+                &[href="#"],
+                &[href="xxx"],
+                &[href="MEDIAEXPERT"],
+                &[href="MEDIAMARKT"],
+                &[href="RTVEUROAGD"],
+                &[href="NEONET"] {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+/*
+.webp {
+    .modal {
+        .modal-body {
+            .item-kettle-image {
+                background-image: url(/static/pl/img/modal/kettles.jpg.webp);
+            }
+            .item-toaster-image {
+                background-image: url(/static/pl/img/modal/toasters.jpg.webp);
+            }
+            .item-shop-image {
+                background-image: url(/static/pl/img/modal/logos.jpg.webp);
+            }
+        }
+    }
+}
+*/

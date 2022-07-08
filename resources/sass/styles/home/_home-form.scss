@@ -1,0 +1,88 @@
+.home-form {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: $gray;
+
+    .accent {
+        &::before,
+        &::after {
+            background-color: $white;
+        }
+    }
+
+    h2 {
+        margin-bottom: 45px;
+        color: $white;
+    }
+
+    img {
+        max-width: 100%; /* or max-width: 100%; */
+        height: auto;
+    }
+
+    .field {
+        width: 100%;
+        position: relative;
+        flex-shrink: 0;
+        min-height: 50px;
+        margin-bottom: 30px;
+
+        /*
+        .label {
+            position: absolute;
+            top: 13px;
+            left: 50%;
+            -webkit-transition: 0.2s ease-out all;
+            transition: 0.2s ease-out all;
+            margin: 0;
+            height: 46px;
+            background-color: transparent;
+            color: $white;
+            text-align: center;
+            transform: translateX(-50%);
+        }
+        */
+
+        .slim {
+            &.invalid {
+                border-color: $red;
+            }
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        /*
+        .input:focus + .label,
+        .textarea:focus + .label,
+        .input:not(:placeholder-shown) + .label,
+        .textarea:not(:placeholder-shown) + .label {
+            top: -11px;
+            padding: 0 10px;
+            height: 22px;
+            line-height: 22px;
+            background-color: $gray;
+        }
+        */
+
+        .icon-desc {
+            color: $white;
+            max-width: 300px;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button {
+            padding-left: 90px;
+            padding-right: 90px;
+        }
+
+        .spiner {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
