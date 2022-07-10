@@ -198,6 +198,8 @@ h3 {
 }
 
 .field {
+    margin-bottom: 25px;
+
     &.hidden {
         display: none;
     }
@@ -236,7 +238,7 @@ h3 {
         border: 3px solid $blue_dark;
     }
 
-    &.invalid {
+    &.no-value {
         border: 3px solid $red;
     }
 
@@ -247,7 +249,7 @@ h3 {
     */
 
     &:not(.select):focus-visible,
-    &.valid,
+    &.has-value,
     &.select:not(.empty) {
         + .placeholder {
             color: $blue_dark;
@@ -300,25 +302,6 @@ h3 {
     padding-top: 10px;
 }
 
-/*
-.input::-webkit-input-placeholder {
-    color: $white;
-    opacity: 1;
-}
-.input:-ms-input-placeholder {
-    color: $white;
-    opacity: 1;
-}
-.input::-ms-input-placeholder {
-    color: $white;
-    opacity: 1;
-}
-.input::placeholder {
-    color: $white;
-    opacity: 1;
-}
-*/
-
 .label-checkbox {
     min-height: 33px;
     cursor: pointer;
@@ -346,7 +329,7 @@ h3 {
         border-radius: 0;
     }
 
-    &.invalid {
+    &.no-value {
         &:before {
             border-color: $red;
             border-width: 3px;
@@ -354,7 +337,7 @@ h3 {
     }
 }
 
-.input-checkbox {
+.checkbox {
     &:focus + .label-checkbox:before {
         background-color: rgba(255, 255, 255, 0.3);
     }
@@ -388,6 +371,52 @@ h3 {
     }
 }
 
+.file-uploads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .thumbs {
+        margin-bottom: 30px;
+    }
+
+    .info {
+        width: 290px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $blue;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+
+        img {
+            max-width: 48px;
+            margin-bottom: 15px;
+        }
+
+    }
+
+    .hidden {
+        display: none;
+
+        img {
+            margin: 0 auto;
+            max-width: 300px;
+            display: block;
+        }
+    }
+
+    .uploads-d-none {
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
 .slim-info-graphic {
     margin-bottom: 30px;
     img {
@@ -403,7 +432,6 @@ h3 {
     color: $red;
     position: relative;
     text-align: center;
-    margin-bottom: 25px;
     font-size: 14px;
     line-height: 1;
     margin-top: 5px;

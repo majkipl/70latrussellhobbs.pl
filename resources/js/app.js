@@ -1,7 +1,3 @@
-// import './bootstrap';
-//
-// import '../sass/app.scss'
-
 import './bootstrap';
 
 // TU IMPORTOWAĆ ZEWNĘTRZNE BIBLIOTEKI
@@ -9,6 +5,6 @@ import './bootstrap';
 
 import '../sass/app.scss';
 
-// import './modernizr-custom';
+import './modernizr-custom';
 
 import './starter';
