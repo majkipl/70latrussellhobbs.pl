@@ -48,7 +48,7 @@ class ApplicationController extends Controller
                 $request
             );
 
-            //todo: send email
+            $this->applicationService->sendMail($request->input('email'), $application->id);
 
             return response()->json(
                 [
