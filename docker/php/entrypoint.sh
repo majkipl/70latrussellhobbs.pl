@@ -1,11 +1,13 @@
 #!/bin/bash
 
 chown -R www-data:www-data /var/www/html/public
-chown -R www-data:www-data /var/www/html/storage/logs
-chown -R www-data:www-data /var/www/html/storage/framework
+chown -R www-data:www-data /var/www/html/storage
+#chown -R www-data:www-data /var/www/html/storage/logs
+#chown -R www-data:www-data /var/www/html/storage/framework
 chmod -R 777 /var/www/html/public
-chmod -R 777 /var/www/html/storage/logs
-chmod -R 777 /var/www/html/storage/framework
+chmod -R 777 /var/www/html/storage
+#chmod -R 777 /var/www/html/storage/logs
+#chmod -R 777 /var/www/html/storage/framework
 
 composer install --no-interaction --no-progress
 
