@@ -1,7 +1,7 @@
 <section class="form-app-form" id="formApplication">
     <div class="container">
 
-        <form class="form row" method="post" action="/dodaj-zgloszenie/zapisz">
+        <form class="form row" method="post" action="{{ route('form.save') }}">
             @csrf
 
             <x-forms.input.text name="firstname" required="required" max="128" placeholder="Imię" class="offset-lg-1"/>

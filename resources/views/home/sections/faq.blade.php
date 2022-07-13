@@ -37,13 +37,13 @@
                     <li>
                         <div>
                             <strong>Jak wgrać za pomocą formularza dowód zakupy?</strong>
-                            <p>Najlepszym i najwygodniejszym rozwiązaniem jest zrobienie zdjęcia, na którym widoczny jest paragon lub faktura dokumentująca zakup produktów Russell Hobbs i wgranie go w odpowiednie miejsce w <a href="/dodaj-zgloszenie/">formularzu</a>. Ważne, aby zdjęcie było zrobione tak, by dokument pozostał czytelny.</p>
+                            <p>Najlepszym i najwygodniejszym rozwiązaniem jest zrobienie zdjęcia, na którym widoczny jest paragon lub faktura dokumentująca zakup produktów Russell Hobbs i wgranie go w odpowiednie miejsce w <a href="{{ route('form') }}">formularzu</a>. Ważne, aby zdjęcie było zrobione tak, by dokument pozostał czytelny.</p>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Jak wgrać za pomocą formularza wycięte kody EAN?</strong>
-                            <p>To proste. Wystarczy za pomocą nożyczek wyciąć kod kreskowy z opakowania produktu promocyjnego, a następnie zrobić mu zdjęcie i wgrać w odpowiednie miejsce w <a href="/dodaj-zgloszenie/">formularzu</a>. Jeśli dokonałeś zakupu dwóch produktów, należy zaznaczyć opcję „chcę dodać drugi produkt” i analogicznie wgrać zdjęcie drugiego wyciętego kodu kreskowego.</p>
+                            <p>To proste. Wystarczy za pomocą nożyczek wyciąć kod kreskowy z opakowania produktu promocyjnego, a następnie zrobić mu zdjęcie i wgrać w odpowiednie miejsce w <a href="{{ route('form') }}">formularzu</a>. Jeśli dokonałeś zakupu dwóch produktów, należy zaznaczyć opcję „chcę dodać drugi produkt” i analogicznie wgrać zdjęcie drugiego wyciętego kodu kreskowego.</p>
                         </div>
                     </li>
                     <li>

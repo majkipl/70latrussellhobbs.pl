@@ -17,7 +17,7 @@
                 <div class="icon">
                     <img src="{{ asset('images/svg/steps/s2.svg') }}" width="150" alt="s2" />
                 </div>
-                <p class="caption mb-3">Zarejestruj kupione produkty <br />w ciągu 7 dni od zakupu <br />za pomocą <a href="/dodaj-zgloszenie/" title="Wypełnij formularz zgłoszeniowy" class="link">formularza <br />zgłoszeniowego</a>.</p>
+                <p class="caption mb-3">Zarejestruj kupione produkty <br />w ciągu 7 dni od zakupu <br />za pomocą <a href="{{ route('form') }}" title="Wypełnij formularz zgłoszeniowy" class="link">formularza <br />zgłoszeniowego</a>.</p>
                 <p class="caption">Pamiętaj o wycięciu kodów kreskowych <br />z opakowań produktów!</p>
             </div>
 
@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 offset-md-2 offset-lg-3 offset-xl-4 d-flex flex-column align-items-center text-center">
-                <a href="/dodaj-zgloszenie/" class="button button-red full-width" title="formularz zgłoszeniowy">formularz zgłoszeniowy</a>
+                <a href="{{ route('form') }}" class="button button-red full-width" title="formularz zgłoszeniowy">formularz zgłoszeniowy</a>
                 <a href="{$smarty.const.RULE_PATH}?t={$smarty.now}" class="button button-red full-width" title="sprawdź regulamin promocji">regulamin</a>
             </div>
 
