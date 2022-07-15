@@ -45,8 +45,8 @@ class ApplicationMail extends Mailable
     public function content()
     {
         return new Content(
-            html: 'emails.html',
-            text: 'emails.text'
+            html: 'emails.application.html',
+            text: 'emails.application.text'
         );
     }
 
