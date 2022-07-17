@@ -4,7 +4,7 @@ var height;
 
 jQuery.event.special.touchstart = {
     setup: function (_, ns, handle) {
-        this.addEventListener("touchstart", handle, { passive: true });
+        this.addEventListener("touchstart", handle, {passive: true});
     },
 };
 
@@ -67,6 +67,7 @@ var starter = {
         starter.mouseEnter();
         starter.mouseLeave();
         starter.formStyled();
+        starter.modal();
 
         // starter.plugins.owl.init(".owl-carousel");
         // starter.plugins.slim.init();
@@ -74,6 +75,52 @@ var starter = {
         // starter.wow.init();
 
         starter.autoscroll.init();
+    },
+
+    modal: function () {
+        const modal = document.getElementById('modal');
+
+        modal?.addEventListener('show.bs.modal', (e) => {
+            console.log('show.bs.modal');
+
+            const id = $(e.relatedTarget).data("id");
+
+            const $modal = $('#modal');
+            console.log($modal);
+
+            $modal.find(".modal-body .logos > div").remove();
+
+            $.getJSON(`/api/product/url/${id}`, function (data) {
+                $.each(data.rows, function (index, value) {
+                    console.log(value);
+                    $modal
+                        .find(".modal-body .logos")
+                        .append(
+                            '<div class="col-12 col-sm-6"><a href="' +
+                            value +
+                            '" title="Kup teraz" class="logo" target="_blank" rel="noopener noreferrer" data-fbpa="true"></a></div>'
+                        );
+                });
+            });
+
+            // var recipient = $(e.relatedTarget).data("product");
+            //
+            // var $modal = $('#modal');
+            //
+            // $modal.find(".modal-body .logos > div").remove();
+            //
+            // $.getJSON("/json/product.json", function (data) {
+            //     $.each(data[recipient], function (index, value) {
+            //         $modal
+            //             .find(".modal-body .logos")
+            //             .append(
+            //                 '<div class="col-12 col-sm-6"><a href="' +
+            //                 value +
+            //                 '" title="Kup teraz" class="logo" target="_blank" rel="noopener noreferrer" data-fbpa="true"></a></div>'
+            //             );
+            //     });
+            // });
+        })
     },
 
     onClick: function () {
@@ -84,136 +131,6 @@ var starter = {
         $(document).on("click", "button.button-uploads", function () {
             $(this).prev().find("input[type=file]").trigger("click");
         });
-
-
-        // $(document).on("click", ".button.upload", function () {
-        //     $(this).prev().prev().prev().find(".slim-file-hopper").trigger("click");
-        //     return false;
-        // });
-
-        // $(document).on("click", "a.item-shop-image", function () {
-        //     let domain = new URL(this.getAttribute("href"));
-        //
-        //     SR.event.track("Id\u017a do Sklepu", {
-        //         eventLabel: "productGoToShop70latrh",
-        //         name: document.querySelector(".row.logos h3").innerHTML,
-        //         model: document.querySelector(".row.logos .item-product-image").dataset.symbol,
-        //         brand: "RussellHobbs",
-        //         shop: domain.hostname.replace("www.", ""),
-        //     });
-        //     return true;
-        // });
-
-        // $(document).on("change", ".input-checkbox.product-2", function (e) {
-        //     e.target.checked === true
-        //         ? $(".field-product-2").addClass("is-show")
-        //         : $(".field-product-2").removeClass("is-show");
-        // });
-
-        // $(document).on("input", "#where.select", function () {
-        //     if ($(this).val() === "20") {
-        //         console.log($(this));
-        //         $(this).parent().next().removeClass("hidden");
-        //     } else {
-        //         $(this).parent().next().addClass("hidden");
-        //     }
-        // });
-
-        // $("#modal").on("show.bs.modal", function (e) {
-        //     var $type = $(e.relatedTarget).data("type");
-        //     var $links = new Array();
-        //     var $modal = $(this);
-        //
-        //     console.log($(e.relatedTarget).data("id"));
-        //
-        //     $modal.find("h2").text($(e.relatedTarget).data("title"));
-        //     $modal.find(".modal-body .logos > div").remove();
-        //
-        //     if ($type == "buy") {
-        //         $.getJSON("/static/pl/json/products.min.json", function (data_c) {
-        //             console.log(data_c);
-        //
-        //             var $param = $(e.relatedTarget).data("collection");
-        //             var product = data_c[$(e.relatedTarget).data("id")];
-        //
-        //             console.log(product);
-        //
-        //             // console.log(data_c);
-        //             // var $param_type = $(e.relatedTarget).data("param-type");
-        //
-        //             // if ($param_type) {
-        //             //     $products = data_c.types[$param][$param_type];
-        //             // } else {
-        //             //     $products = data_c.collections[$param];
-        //             // }
-        //
-        //             var $links_html = "";
-        //
-        //             $.each(product.urls, function (index, url) {
-        //                 $links_html +=
-        //                     '<a href="' +
-        //                     url +
-        //                     '" title="Kup teraz" class="col-12 col-xl-6 item-shop-image" target="_blank" title="Kup Teraz" rel="noopener noreferrer"></a>';
-        //             });
-        //
-        //             $modal
-        //                 .find(".modal-body .logos")
-        //                 .append(
-        //                     '<div class="col-12 item">' +
-        //                     "   <h3>" +
-        //                     product.title +
-        //                     "</h3>" +
-        //                     '   <div class="item-product-image" data-symbol="' +
-        //                     $(e.relatedTarget).data("id") +
-        //                     '">' +
-        //                     '       <img src="/static/pl/img/products/thumb/' +
-        //                     $(e.relatedTarget).data("id") +
-        //                     '.png" alt="' +
-        //                     $(e.relatedTarget).data("id") +
-        //                     '" />' +
-        //                     "</div>" +
-        //                     '   <div class="row links">' +
-        //                     $links_html +
-        //                     "</div>" +
-        //                     "</div>"
-        //                 );
-        //
-        //             // $.each(data_c.products[value], function (index, value) {
-        //             //     $links_html +=
-        //             //         '<a href="' +
-        //             //         value +
-        //             //         '" title="Kup teraz" class="col-12 col-xl-6 item-shop-image" target="_blank" title="###" rel="noopener noreferrer"></a>';
-        //             // });
-        //
-        //             //     $links[value] = data_c.products[value];
-        //             //     var $links_html = "";
-        //             //     $.each(data_c.products[value], function (index, value) {
-        //             //         $links_html +=
-        //             //             '<a href="' +
-        //             //             value +
-        //             //             '" title="Kup teraz" class="col-12 col-xl-6 item-shop-image" target="_blank" title="###" rel="noopener noreferrer"></a>';
-        //             //     });
-        //             //     $modal
-        //             //         .find(".modal-body .logos")
-        //             //         .append(
-        //             //             '<div class="col-12 col-xl-4 item">' +
-        //             //                 '   <div class="item-product-image" data-symbol="' +
-        //             //                 value +
-        //             //                 '">' +
-        //             //                 '       <img src="/static/pl/img-org/products/' +
-        //             //                 value +
-        //             //                 '.png" alt="' +
-        //             //                 value +
-        //             //                 '" />' +
-        //             //                 "</div>" +
-        //             //                 '   <div class="row links">' +
-        //             //                 $links_html +
-        //             //                 "</div>" +
-        //             //                 "</div>"
-        //             //         );
-        //         });
-        //     }
-        // });
 
         // $(document).on("click", "#kontakt button.send", function () {
         //     $.ajax({
@@ -326,6 +243,8 @@ var starter = {
                         return starter.validator.isName(value, 'Imię');
                     case 'lastname':
                         return starter.validator.isName(value, 'Nazwisko');
+                    case 'name':
+                        return starter.validator.isName(value, 'Imię i nazwisko');
                     case 'email':
                         return starter.validator.isEmail(value, 'Adres e-mail');
                     case 'phone':
@@ -360,7 +279,8 @@ var starter = {
                         return starter.validator.isURL(value, 'Link do opinii');
                     case 'content':
                         return starter.validator.isContent(value, 'Treść opinii');
-                        return;
+                    case 'message':
+                        return starter.validator.isMessage(value, 'Wiadomość');
                 }
             }
 
@@ -427,22 +347,49 @@ var starter = {
                 $(this).trigger('change');
             });
         });
-
-        // $("[name=legal_0]").click(function () {
-        //     this.checked == true
-        //         ? $("input.legal").each(function () {
-        //             this.checked = true;
-        //             $(this).next().next().text('');
-        //         })
-        //         : $("input.legal").each(function () {
-        //             this.checked = false;
-        //             // $(this).next().next().text('');
-        //         });
-        // });
-
     },
 
     onSubmit: function () {
+        $(document).on('submit', '#kontakt form', function () {
+            console.log('#kontakt form');
+
+            const fields = starter.getFields($(this).closest('form'));
+            const url = $(this).closest('form').attr('action');
+
+            axios({
+                method: 'post',
+                url: url,
+                headers: {
+                    'content-type': 'multipart/form-data',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: fields,
+            }).then(function (response) {
+                console.log(response);
+                // window.location = response.data.results.url;
+            }).catch(function (error) {
+                $(`.error-post`).text('');
+                if (error.response) {
+                    console.log('error.response');
+
+                    Object.keys(error.response.data.errors).map((item) => {
+                        $(`.error-${item}`).text(error.response.data.errors[item][0]);
+                    });
+                } else if (error.request) {
+                    console.log('error.request');
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                    // http.ClientRequest in node.js
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error', error.message);
+                }
+            });
+
+            return false;
+        });
+
         $(document).on('submit', '#formApplication form', function () {
             const fields = starter.getFields($(this).closest('form'));
             const url = $(this).closest('form').attr('action');
@@ -461,11 +408,6 @@ var starter = {
                 $(`.error-post`).text('');
                 if (error.response) {
                     console.log('error.response');
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    // console.log(error.response.data);
-                    // console.log(error.response.status);
-                    // console.log(error.response.headers);
 
                     Object.keys(error.response.data.errors).map((item) => {
                         $(`.error-${item}`).text(error.response.data.errors[item][0]);
@@ -483,38 +425,6 @@ var starter = {
             });
 
             return false;
-
-            // const fields = starter.getFields($(this).closest('form'));
-            // const url = $(this).closest('form').attr('action');
-            //
-            // console.log(fields);
-            // console.log(url);
-
-            // $.ajax({
-            //     url: url,
-            //     type: 'POST',
-            //     data: formData,
-            //     processData: false,
-            //     contentType: false,
-            //     success: function (data) {
-            //         console.log(data);
-            //
-            //         if (data.success) {
-            //             location.href = data.redirect;
-            //         } else {
-            //             $('.error-post').text('');
-            //
-            //             $.each(data.errors, function(key, item) {
-            //                 $(`#application_form_${key}`).closest('.element').find('.error-post').text(item);
-            //             });
-            //         }
-            //     },
-            //     error: function () {
-            //         console.error('Błąd sieciowy');
-            //     }
-            // });
-
-            // return false;
         });
     },
 
@@ -804,11 +714,11 @@ var starter = {
         if (attri !== false && $(attri).length > 0) {
             setTimeout(function () {
                 $("html, body").animate(
-                    { scrollTop: Math.abs($(attri).position().top) },
+                    {scrollTop: Math.abs($(attri).position().top)},
                     500,
                     function () {
                         $("html, body").animate(
-                            { scrollTop: Math.abs($(attri).position().top) },
+                            {scrollTop: Math.abs($(attri).position().top)},
                             500
                         );
                     }
@@ -819,7 +729,7 @@ var starter = {
         } else {
             setTimeout(function () {
                 let wst = $(window).scrollTop();
-                $("html, body").animate({ scrollTop: wst + 1 }, 300);
+                $("html, body").animate({scrollTop: wst + 1}, 300);
             }, 300);
         }
 
@@ -849,7 +759,8 @@ var starter = {
         $(".textarea")
             .find("~ .error:not(:empty)")
             .siblings(".textarea")
-            .addClass("no-value"); ;
+            .addClass("no-value");
+        ;
         $(".textarea:not(:empty)").addClass("valid");
 
         // $(".checkbox")
@@ -1026,6 +937,15 @@ var starter = {
                 return `Pole ${name} jest wymagane.`;
             } else if (value.length < 3 || value.length > 2048) {
                 return `Pole ${name} musi mieć od 3 do 2048 znaków.`;
+            } else {
+                return true;
+            }
+        },
+        isMessage: (value, name) => {
+            if (value === "") {
+                return `Pole ${name} jest wymagane.`;
+            } else if (value.length < 3 || value.length > 4096) {
+                return `Pole ${name} musi mieć od 3 do 4096 znaków.`;
             } else {
                 return true;
             }

@@ -59,19 +59,19 @@
             </x-forms.input.checkbox>
 
             <x-forms.input.checkbox name="legal_1" required="required" class="legal">
-                <span>*Zapoznałe(a)m się z regulaminem, dostępnym na stronie {{ env('APP_DOMAIN') }} i wyrażam zgodę na wszystkie jego postanowienia.</span>
+                Zapoznałe(a)m się z regulaminem, dostępnym na stronie {{ env('APP_DOMAIN') }} i wyrażam zgodę na wszystkie jego postanowienia.
             </x-forms.input.checkbox>
 
             <x-forms.input.checkbox name="legal_2" required="required" class="legal">
-                <span>*Zapoznałe(a)m się z Polityką prywatności, dostępną na stronie {{ env('APP_DOMAIN') }} (zawierająca informację o przetwarzaniu danych osobowych).</span>
+                Zapoznałe(a)m się z Polityką prywatności, dostępną na stronie {{ env('APP_DOMAIN') }} (zawierająca informację o przetwarzaniu danych osobowych).
             </x-forms.input.checkbox>
 
             <x-forms.input.checkbox name="legal_3" class="legal">
-                <span>Wyrażam zgodę na przesyłanie na mój adres e-mail przez Spectrum Brands Sp. z o. o. z siedzibą w Warszawie <strong>informacji handlowych</strong> o produktach marek Remington, Russell Hobbs oraz George Foreman. Oświadczam, że zostałam/em poinformowana/y, że zgoda może być w każdym czasie wycofana. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania przed wycofaniem zgody.</span>
+                Wyrażam zgodę na przesyłanie na mój adres e-mail przez Spectrum Brands Sp. z o. o. z siedzibą w Warszawie <strong>informacji handlowych</strong> o produktach marek Remington, Russell Hobbs oraz George Foreman. Oświadczam, że zostałam/em poinformowana/y, że zgoda może być w każdym czasie wycofana. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania przed wycofaniem zgody.
             </x-forms.input.checkbox>
 
             <x-forms.input.checkbox name="legal_4" class="legal">
-                <span>Wyrażam zgodę na przetwarzanie przez Spectrum Brands Sp. z o. o. z siedzibą w Warszawie moich danych osobowych do komunikacji elektronicznej (e-mail), w celu <strong>marketingu bezpośredniego</strong> dotyczącego produktów marek Remington, Russell Hobbs oraz George Foreman, przy użyciu telekomunikacyjnych urządzeń końcowych i automatycznych systemów wywołujących. Oświadczam, że zostałam/em poinformowana/y, że zgoda może być w każdym czasie wycofana. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania przed wycofaniem zgody.</span>
+                Wyrażam zgodę na przetwarzanie przez Spectrum Brands Sp. z o. o. z siedzibą w Warszawie moich danych osobowych do komunikacji elektronicznej (e-mail), w celu <strong>marketingu bezpośredniego</strong> dotyczącego produktów marek Remington, Russell Hobbs oraz George Foreman, przy użyciu telekomunikacyjnych urządzeń końcowych i automatycznych systemów wywołujących. Oświadczam, że zostałam/em poinformowana/y, że zgoda może być w każdym czasie wycofana. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania przed wycofaniem zgody.
             </x-forms.input.checkbox>
 
             <div class="col-12 col-lg-10 offset-lg-1 text-center">
