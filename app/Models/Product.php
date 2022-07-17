@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
 
@@ -11,7 +12,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'name'];
+    protected $fillable = ['id', 'name', 'code', 'collection_id'];
 
 
     /**
@@ -23,6 +24,14 @@ class Product extends Model
     }
 
     /**
+     * @return BelongsTo
+     */
+    public function collection(): BelongsTo
+    {
+        return $this->belongsTo(Collection::class);
+    }
+
+    /**
      * @return mixed
      */
     public static function getAllCached(): mixed
@@ -30,7 +39,7 @@ class Product extends Model
         $cacheKey = (new self)->getTable();
 
         return Cache::remember($cacheKey, now()->addDay(365), function () {
-            return self::all();
+            return self::selectRaw("id, CONCAT(code, ' - ', name) AS name")->get();
         });
     }
 }
