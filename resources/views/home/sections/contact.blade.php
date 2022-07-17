@@ -10,6 +10,8 @@
 
         <div id="form">
             <form class="form row" method="post" action="{{ route('contact.send') }}">
+                @csrf
+
                 <div class="row fieldset">
                     <x-forms.input.text name="name" required="required" max="128" placeholder="Imię i Nazwisko" class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2"/>
 
@@ -28,7 +30,7 @@
                         danych osobowych, o prawie do wycofania zgody w dowolnym momencie oraz o zgodności z prawem
                         przetwarzania, którego dokonano na podstawie zgody przed jej wycofaniem. Więcej informacji o
                         przetwarzaniu danych osobowych pod linkiem <a
-                            href="#" target="_blank"
+                            href="{{ asset('/uploads/polityka-prywatnosci.pdf') }}" target="_blank"
                             rel="noopener noreferrer">Polityka prywatności</a>.
                     </x-forms.input.checkbox>
                 </div>

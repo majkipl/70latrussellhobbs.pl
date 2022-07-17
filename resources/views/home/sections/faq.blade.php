@@ -13,19 +13,19 @@
                     <li>
                         <div>
                             <strong>Czy wszystkie produkty Russell Hobbs biorą udział w promocji?</strong>
-                            <p>W promocji bierze udział bardzo szeroka gama produktów, aby upewnić się czy produkt, który chcesz kupić jest nią objęty, zajrzyj do <a href="{$smarty.const.RULE_PATH}?t={$smarty.now}" target="_blank" rel="noopener noreferrer">regulaminu</a>.</p>
+                            <p>W promocji bierze udział bardzo szeroka gama produktów, aby upewnić się czy produkt, który chcesz kupić jest nią objęty, zajrzyj do <a href="{{ asset('/uploads/regulamin.pdf') }}" target="_blank" rel="noopener noreferrer">regulaminu</a>.</p>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Czy zakupu produktów Russell Hobbs można dokonać w dowolnym sklepie?</strong>
-                            <p>Aby wziąć udział w promocji należy dokonać zakupu produktów w sklepach biorących udział w akcji. Pełną listę partnerów promocji znajdziesz w <a href="{$smarty.const.RULE_PATH}?t={$smarty.now}" target="_blank" rel="noopener noreferrer">regulaminie</a>.</p>
+                            <p>Aby wziąć udział w promocji należy dokonać zakupu produktów w sklepach biorących udział w akcji. Pełną listę partnerów promocji znajdziesz w <a href="{{ asset('/uploads/regulamin.pdf') }}" target="_blank" rel="noopener noreferrer">regulaminie</a>.</p>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Czy zakup produktów Russell Hobbs za kwotę minimum 299 zł musi być dokonany w jednym sklepie?</strong>
-                            <p>Tak. Zakupu produktów Russell Hobbs musisz dokonać w jednym sklepie. Pełną listę partnerów promocji znajdziesz w <a href="{$smarty.const.RULE_PATH}?t={$smarty.now}" target="_blank" rel="noopener noreferrer">regulaminie</a>. </p>
+                            <p>Tak. Zakupu produktów Russell Hobbs musisz dokonać w jednym sklepie. Pełną listę partnerów promocji znajdziesz w <a href="{{ asset('/uploads/regulamin.pdf') }}" target="_blank" rel="noopener noreferrer">regulaminie</a>. </p>
                         </div>
                     </li>
                     <li>

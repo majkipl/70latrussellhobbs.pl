@@ -30,7 +30,7 @@
                     <ul class="navbar-nav ml-auto justify-content-end">
                         <li><a class="nav-link bold" href="#">Poznaj nasze produkty</a></li>
                         <li><a class="nav-link bold" href="#">Kontakt</a></li>
-                        <li><a class="nav-link bold" href="#">Regulamin</a></li>
+                        <li><a class="nav-link bold" href="{{ asset('/uploads/regulamin.pdf') }}">Regulamin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -44,8 +44,8 @@
 
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-5 col-xl-6 align-self-start text-center text-md-left text-uppercase">
-                    <a href="#" target="_blank" rel="noopener noreferrer">Regulamin</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>
+                    <a href="{{ asset('/uploads/regulamin.pdf') }}" target="_blank" rel="noopener noreferrer">Regulamin</a>
+                    <a href="{{ asset('/uploads/polityka-prywatnosci.pdf') }}" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 align-self-end text-center text-sm-right text-md-center">
 
