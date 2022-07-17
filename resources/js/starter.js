@@ -46,20 +46,11 @@ $(window).on("load", function (e) {
 });
 
 var starter = {
-    _var: {
-        // slim_img_ean_2: null,
-        // slim_img_ean_1: null,
-        // slim_img_receipt_1: null,
-        // wow: null,
-        collections: new Array(),
-    },
+    _var: {},
 
     _const: {},
 
     init: function () {
-        // starter.webp.init(true);
-        //$("img").unveil(200, false);
-
         starter.onClick();
         starter.onChange();
         starter.onSubmit();
@@ -68,12 +59,6 @@ var starter = {
         starter.mouseLeave();
         starter.formStyled();
         starter.modal();
-
-        // starter.plugins.owl.init(".owl-carousel");
-        // starter.plugins.slim.init();
-
-        // starter.wow.init();
-
         starter.autoscroll.init();
     },
 
@@ -81,18 +66,13 @@ var starter = {
         const modal = document.getElementById('modal');
 
         modal?.addEventListener('show.bs.modal', (e) => {
-            console.log('show.bs.modal');
-
             const id = $(e.relatedTarget).data("id");
-
             const $modal = $('#modal');
-            console.log($modal);
 
             $modal.find(".modal-body .logos > div").remove();
 
             $.getJSON(`/api/product/url/${id}`, function (data) {
                 $.each(data.rows, function (index, value) {
-                    console.log(value);
                     $modal
                         .find(".modal-body .logos")
                         .append(
@@ -102,24 +82,6 @@ var starter = {
                         );
                 });
             });
-
-            // var recipient = $(e.relatedTarget).data("product");
-            //
-            // var $modal = $('#modal');
-            //
-            // $modal.find(".modal-body .logos > div").remove();
-            //
-            // $.getJSON("/json/product.json", function (data) {
-            //     $.each(data[recipient], function (index, value) {
-            //         $modal
-            //             .find(".modal-body .logos")
-            //             .append(
-            //                 '<div class="col-12 col-sm-6"><a href="' +
-            //                 value +
-            //                 '" title="Kup teraz" class="logo" target="_blank" rel="noopener noreferrer" data-fbpa="true"></a></div>'
-            //             );
-            //     });
-            // });
         })
     },
 
@@ -296,10 +258,9 @@ var starter = {
             const file = this.files[0];
             const fieldId = $(this).attr('id');
 
-            console.log(file);
-            console.log(fieldId);
+            const errorSpan = $(`.error-${fieldId}`);
 
-            $(`.error-${fieldId}`).text('');
+            errorSpan.text('');
 
             if (file) {
                 if (file.size <= 4 * 1024 * 1024) {
@@ -312,13 +273,13 @@ var starter = {
                         reader.readAsDataURL(file);
                     } else {
                         // Wyświetlenie komunikatu o błędzie
-                        $(`.error-${fieldId}`).text('Można wybrać tylko pliki graficzne JPG, JPEG lub PNG');
+                        errorSpan.text('Można wybrać tylko pliki graficzne JPG, JPEG lub PNG');
                         // Wyczyszczenie pola wyboru pliku
                         $(this).val('');
                     }
                 } else {
                     // Wyświetlenie komunikatu o błędzie
-                    $(`.error-${fieldId}`).text('Rozmiar pliku nie może przekraczać 4 MB');
+                    errorSpan.text('Rozmiar pliku nie może przekraczać 4 MB');
                     // Wyczyszczenie pola wyboru pliku
                     $(this).val('');
                 }
@@ -326,21 +287,13 @@ var starter = {
         });
 
         $(document).on("change", "#is_product_2", function (e) {
+            const fieldProduct2 = $(".field-product-2");
             e.target.checked === true
-                ? $(".field-product-2").addClass("is-show")
-                : $(".field-product-2").removeClass("is-show");
+                ? fieldProduct2.addClass("is-show")
+                : fieldProduct2.removeClass("is-show");
         });
 
-        $(document).on("change", "[name=legal_0]", function (e) {
-            // this.checked == true
-            //     ? $(".legal input").each(function () {
-            //         this.checked = true;
-            //         $(this).trigger('change');
-            //     })
-            //     : $(".legal input").each(function () {
-            //         this.checked = false;
-            //         $(this).trigger('change');
-            //     });
+        $(document).on("change", "[name=legal_0]", function () {
             const isChecked = this.checked;
             $(".legal input").each(function () {
                 this.checked = isChecked;
@@ -366,7 +319,9 @@ var starter = {
                 data: fields,
             }).then(function (response) {
                 console.log(response);
-                // window.location = response.data.results.url;
+
+                $("#kontakt h2").html(response.data.results.message);
+                $("#kontakt #form").hide();
             }).catch(function (error) {
                 $(`.error-post`).text('');
                 if (error.response) {
@@ -443,123 +398,7 @@ var starter = {
 
     },
 
-    plugins: {
-        // slim: {
-        //     init: function () {
-        //         starter._var.slim_img_ean_1 = starter.plugins.slim.execute("img_ean_1");
-        //         starter._var.slim_img_ean_2 = starter.plugins.slim.execute("img_ean_2");
-        //         starter._var.slim_img_receipt_1 = starter.plugins.slim.execute("img_receipt_1");
-        //
-        //         //starter._var.slim_img_ean_1 = starter.plugins.slim.ean();
-        //         //starter._var.slim_img_ean_2 = starter.plugins.slim.receipt();
-        //
-        //         //
-        //         //img_receipt
-        //     },
-        //     execute: function (element) {
-        //         if ($(".slim.slim_" + element).length) {
-        //             if (element == "img_receipt_1") {
-        //                 var tLabel = "Dodaj zdjęcie dowodu zakupu";
-        //             }
-        //             if (element == "img_ean_1") {
-        //                 var tLabel =
-        //                     "Dodaj zdjęcie <strong><u>WYCIĘTEGO</u></strong> kodu kreskowego";
-        //             }
-        //             if (element == "img_ean_2") {
-        //                 var tLabel =
-        //                     "Dodaj zdjęcie <strong><u>WYCIĘTEGO</u></strong> kodu kreskowego";
-        //             }
-        //
-        //             return $(".slim.slim_" + element).slim({
-        //                 download: false,
-        //                 label: tLabel,
-        //                 buttonConfirmLabel: "Zapisz",
-        //                 buttonCancelLabel: "Anuluj",
-        //                 size: "768,768",
-        //                 minSize: "512,512",
-        //                 maxFileSize: "10",
-        //                 saveInitialImage: true,
-        //                 instantEdit: true,
-        //                 didInit: function (data) {
-        //                     $(".slim input[name=" + element + "]").val(
-        //                         $("input[name=slim_" + element + "]").val()
-        //                     );
-        //                 },
-        //                 didConfirm: function () {
-        //                     $(".slim.slim_" + element).removeClass("invalid");
-        //                     return true;
-        //                 },
-        //             });
-        //         } else {
-        //             return null;
-        //         }
-        //     },
-        // },
-
-        // owl: {
-        //     init: function (selector) {
-        //         if ($(selector).length) {
-        //             $(selector).owlCarousel({
-        //                 loop: true,
-        //                 margin: 0,
-        //                 nav: true,
-        //                 dots: false,
-        //                 navText: ["<span></span>", "<span></span>"],
-        //                 items: 1,
-        //                 lazyLoad: true,
-        //                 onInitialize: function (event) {
-        //                     console.log("onInitialize");
-        //                 },
-        //                 onInitialized: function (event) {
-        //                     console.log("onInitialized");
-        //                 },
-        //                 onResize: function (event) {
-        //                     console.log("onResize");
-        //                 },
-        //                 onResized: function (event) {
-        //                     console.log("onResized");
-        //                 },
-        //                 onRefresh: function (event) {
-        //                     console.log("onRefresh");
-        //                 },
-        //                 onRefreshed: function (event) {
-        //                     console.log("onRefreshed");
-        //                 },
-        //                 onDrag: function (event) {
-        //                     console.log("onDrag");
-        //                 },
-        //                 onDragged: function (event) {
-        //                     console.log("onDragged");
-        //                 },
-        //                 onTranslate: function (event) {
-        //                     console.log("onTranslate");
-        //                 },
-        //                 onTranslated: function (event) {
-        //                     console.log("onTranslated");
-        //                 },
-        //                 onChange: function (event) {
-        //                     console.log("onChange");
-        //                 },
-        //                 onChanged: function (event) {
-        //                     console.log("onChanged");
-        //                 },
-        //                 onLoadLazy: function (event) {
-        //                     console.log("onLoadLazy");
-        //                 },
-        //                 onLoadedLazy: function (event) {
-        //                     console.log("onLoadedLazy");
-        //                 },
-        //                 onPlayVideo: function (event) {
-        //                     console.log("onPlayVideo");
-        //                 },
-        //                 onStopVideo: function (event) {
-        //                     console.log("onStopVideo");
-        //                 },
-        //             });
-        //         }
-        //     },
-        // },
-    },
+    plugins: {},
 
     getFields: function ($form) {
         const inputs = $form.find('.input');
@@ -597,7 +436,6 @@ var starter = {
     selectorSupported: {
         check: function (selector) {
             var support,
-                link,
                 sheet,
                 doc = document,
                 root = doc.documentElement,
@@ -679,27 +517,19 @@ var starter = {
 
     autoscroll: {
         init: function () {
+            console.log('AutoScroll');
+
             starter.scrollOrLink(window.location.pathname);
-
-            // console.log($(window).scrollTop());
-
-            // setTimeout(function () {
-            //     let wst = $(window).scrollTop();
-            //     $("html, body").animate({ scrollTop: wst + 1 }, 300);
-            // }, 1000);
         },
 
         getElementDomByURL: function ($url) {
             switch ($url) {
-                case "/kontakt/":
+                case "/kontakt":
                     return "#kontakt";
-                    break;
-                case "/poznaj-nasze-produkty/":
+                case "/poznaj-nasze-produkty":
                     return "#kategorie-produktow";
-                    break;
-                case "/jak-odebrac-gratis/":
+                case "/jak-odebrac-gratis":
                     return "#gratis";
-                    break;
                 default:
                     return false;
             }
@@ -707,6 +537,8 @@ var starter = {
     },
 
     scrollOrLink: function (element) {
+        console.log(element);
+
         var attri = starter.autoscroll.getElementDomByURL(element);
 
         console.log(attri);
@@ -760,7 +592,7 @@ var starter = {
             .find("~ .error:not(:empty)")
             .siblings(".textarea")
             .addClass("no-value");
-        ;
+
         $(".textarea:not(:empty)").addClass("valid");
 
         // $(".checkbox")
@@ -904,7 +736,7 @@ var starter = {
                 return true;
             }
         },
-        isLegal: (item, name) => {
+        isLegal: (item) => {
             if (item.val() === "") {
                 return `Pole jest wymagane.`;
             } else if (!item.prop('checked')) {

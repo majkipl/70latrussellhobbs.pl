@@ -25,7 +25,7 @@ class ContactController extends Controller
                 [
                     'status' => 'success',
                     'results' => [
-//                        'url' => route( 'thx.app', ['id' => $application->id])
+                        'message' => 'Widomość została wysłana. '
                     ]
                 ],
                 Response::HTTP_OK

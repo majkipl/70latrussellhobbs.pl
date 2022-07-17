@@ -25,7 +25,7 @@ class ContactRequest extends FormRequest
     {
         $rules = [
             'name' => 'bail|required|string|min:3|max:128',
-            'email' => 'bail|required|string|max:255|email:rfc,dns|unique:applications,email',
+            'email' => 'bail|required|string|max:255|email:rfc,dns',
             'message' => 'bail|required|string|min:3|max:4096',
             'legal' => 'bail|required',
         ];
