@@ -11,7 +11,7 @@
         {{ $required ? 'required' : '' }}
     />
     <label for="{{ $name }}" class="label-checkbox">
-        {{ $slot }}
+        <span>{{ $required ? '*' : '' }}{{ $slot }}</span>
     </label>
     <div class="error-post error-{{ $name }}"></div>
 </div>
