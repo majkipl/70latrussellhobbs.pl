@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/kontakt', [HomeController::class, 'index'])->name('home.contact');
-Route::get('/nasze-produkty', [HomeController::class, 'index'])->name('home.products');
+Route::get('/poznaj-nasze-produkty', [HomeController::class, 'index'])->name('home.products');
 
 Route::post('/kontakt/wyslij', [ContactController::class, 'send'])->name('contact.send');
 
