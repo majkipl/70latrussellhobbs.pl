@@ -4,21 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use App\Models\Product;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class BreakfastController extends Controller
 {
-    public function index()
+    /**
+     * @return Factory|View|Application
+     */
+    public function index(): Factory|View|Application
     {
         $collectionName = 'breakfast';
 
-        //todo: add cache
-        $products = Product::with('collection')
-            ->whereHas('collection', function ($query) use ($collectionName) {
-                $query->where('name', '=', $collectionName);
-            })
-            ->get();
+        $products = Product::getByCollection($collectionName);
 
         return view('product/index', [
             'collection' => $collectionName,

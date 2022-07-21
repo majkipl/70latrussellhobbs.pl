@@ -42,4 +42,17 @@ class Product extends Model
             return self::selectRaw("id, CONCAT(code, ' - ', name) AS name")->get();
         });
     }
+
+    public static function getByCollection(string $collectionName)
+    {
+        $cacheKey = (new self)->getTable() . '_' . $collectionName;
+
+        return Cache::remember($cacheKey, now()->addDay(1), function () use($collectionName) {
+           return self::with('collection')
+                    ->whereHas('collection', function ($query) use ($collectionName) {
+                           $query->where('name', '=', $collectionName);
+                       })
+                    ->get();
+        });
+    }
 }
