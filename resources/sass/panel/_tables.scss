@@ -1,0 +1,59 @@
+.fixed-table-toolbar button.btn[name="paginationSwitch"],
+.fixed-table-toolbar button.btn[name="refresh"],
+.fixed-table-toolbar button.btn[name="toggle"],
+.fixed-table-toolbar button.btn[name="fullscreen"],
+.fixed-table-toolbar button.btn[name="clearSearch"],
+.fixed-table-toolbar button.btn[name="search"] {
+    height: 34px;
+}
+
+.bootstrap-table
+.fixed-table-pagination
+> .pagination-detail
+.page-list
+.btn-group {
+    margin-top: 0;
+}
+
+table.item.show.data {
+}
+
+table.item.show.data tr.correct td {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+table.item.show.data tr.incorrect td {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+table.item.show.data tr > td {
+    padding: 5px 15px 5px 0;
+}
+
+table.item.show.data tr > td:first-child {
+    min-width: 150px;
+    font-weight: 700;
+}
+
+.fixed-table-container thead th,
+.fixed-table-container tbody td {
+    font-size: 12px;
+}
+
+.fixed-table-container thead th {
+    font-weight: bold;
+}
+
+.fixed-table-container tbody td.correct:not(:empty) {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+.fixed-table-container tbody td.incorrect:not(:empty) {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.bt-table {
+    .show {
+        color: $dark-gray;
+    }
+}
