@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApplicationController;
 use App\Http\Controllers\Api\ProductUrlController;
 use App\Http\Middleware\UnauthorizedJsonResponse;
 use Illuminate\Http\Request;
@@ -22,5 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/product/url/{id}', [ProductUrlController::class, 'urls'])->name('api.product.urls');
 
-Route::middleware(UnauthorizedJsonResponse::class)->group(function () {
-});
+//Route::middleware(UnauthorizedJsonResponse::class)->group(function () {
+    Route::get('/applications', [ApplicationController::class, 'index'])->name('api.app');
+//});
+

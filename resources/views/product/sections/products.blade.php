@@ -3,20 +3,21 @@
 
         <div class="row">
             <div class="col-12 text-center">
-                @switch($collection)
-                    @case('name')
-                        <h1 class="text-uppercase color-blue">NOWOŚCI</h1>
-                        @break
-                    @case('breakfast')
-                        <h1 class="text-uppercase color-blue">PRODUKTY ŚNIADANIOWE</h1>
-                        @break
-                    @case('ironing')
-                        <h1 class="text-uppercase color-blue">PRODUKTY DO PRASOWANIA</h1>
-                        @break
-                    @case('cooking')
-                        <h1 class="text-uppercase color-blue">PRODUKTY DO GOTOWANIA</h1>
-                        @break
-                @endswitch
+                <h1 class="text-uppercase color-blue">{{ $collection->name }}</h1>
+{{--                @switch($collection)--}}
+{{--                    @case('name')--}}
+{{--                        <h1 class="text-uppercase color-blue">NOWOŚCI</h1>--}}
+{{--                        @break--}}
+{{--                    @case('breakfast')--}}
+{{--                        <h1 class="text-uppercase color-blue">PRODUKTY ŚNIADANIOWE</h1>--}}
+{{--                        @break--}}
+{{--                    @case('ironing')--}}
+{{--                        <h1 class="text-uppercase color-blue">PRODUKTY DO PRASOWANIA</h1>--}}
+{{--                        @break--}}
+{{--                    @case('cooking')--}}
+{{--                        <h1 class="text-uppercase color-blue">PRODUKTY DO GOTOWANIA</h1>--}}
+{{--                        @break--}}
+{{--                @endswitch--}}
             </div>
         </div>
 

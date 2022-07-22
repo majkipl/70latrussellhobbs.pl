@@ -61,10 +61,10 @@
                                 <a href="{{ route('panel.apps') }}" class="nav-link">Zgłoszenia</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('panel.collections') }}" class="nav-link">Kolekcje produktów</a>
+                                <a href="{{ route('panel.collection') }}" class="nav-link">Kolekcje produktów</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('panel.products') }}" class="nav-link">Produkty</a>
+                                <a href="{{ route('panel.product') }}" class="nav-link">Produkty</a>
                             </li>
                         @endcan
                         <li class="nav-item dropdown">

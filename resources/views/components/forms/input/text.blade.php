@@ -15,6 +15,6 @@
            maxlength="{{ $max }}"
            aria-label="{{ $placeholder }}"
            value="{{ $value }}">
-    <div class="placeholder">{{ $placeholder }}*</div>
+    <div class="placeholder">{{ $placeholder }}{{ $required ? '*' : '' }}</div>
     <div class="error-post error-{{ $name }}"></div>
 </div>
