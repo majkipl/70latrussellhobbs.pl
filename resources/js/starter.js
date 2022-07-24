@@ -93,103 +93,6 @@ var starter = {
         $(document).on("click", "button.button-uploads", function () {
             $(this).prev().find("input[type=file]").trigger("click");
         });
-
-        // $(document).on("click", "#kontakt button.send", function () {
-        //     $.ajax({
-        //         url: "/kontakt-wyslij/",
-        //         type: "POST",
-        //         cache: false,
-        //         dataType: "json",
-        //         data: {
-        //             contact_name: $("#kontakt #contact_name").val(),
-        //             contact_email: $("#kontakt #contact_email").val(),
-        //             contact_message: $("#kontakt #contact_message").val(),
-        //             contact_legal_1: $("#kontakt #contact_legal_1").prop("checked") ? "on" : null,
-        //         },
-        //
-        //         beforeSend: function (xhr) {
-        //             $("#kontakt a.send")
-        //                 .hide()
-        //                 .after(
-        //                     '<img src="/static/pl/svg/spiner.svg" alt="spiner" class="spiner" />'
-        //                 );
-        //
-        //             $return = true;
-        //
-        //             $("#kontakt .error-post").text("");
-        //
-        //             if (!$("#kontakt #contact_name").val()) {
-        //                 $return = false;
-        //             }
-        //
-        //             $("#kontakt input, #kontakt textarea").each(function (key, element) {
-        //                 if (!$(element).val()) {
-        //                     $(element)
-        //                         .closest(".field")
-        //                         .addClass("has-error")
-        //                         .find(".error-post")
-        //                         .text("To pole jest wymagane.");
-        //
-        //                     $return = $return && false;
-        //                 }
-        //
-        //                 if ($(element).attr("type") == "email") {
-        //                     if (!starter.validateEmail($(element).val())) {
-        //                         $(element)
-        //                             .closest(".field")
-        //                             .addClass("has-error")
-        //                             .find(".error-post")
-        //                             .text("Wprowadź poprawny adres email.");
-        //
-        //                         $return = $return && false;
-        //                     }
-        //                 }
-        //
-        //                 if ($(element).attr("type") == "checkbox") {
-        //                     if (!$(element).is(":checked")) {
-        //                         $(element)
-        //                             .closest(".field")
-        //                             .addClass("has-error")
-        //                             .find(".error-post")
-        //                             .text("To pole jest wymagane.");
-        //
-        //                         $return = $return && false;
-        //                     }
-        //                 }
-        //             });
-        //
-        //             if (!$return) {
-        //                 $("#kontakt .spiner").hide().prev().show();
-        //             }
-        //
-        //             return $return;
-        //         },
-        //
-        //         success: function (json) {
-        //             if (json.isSuccess) {
-        //                 // $("#kontakt #contact_name").val().split(" ")[0];
-        //
-        //                 $("#kontakt h3").html(json.message);
-        //                 $("#kontakt #form").hide();
-        //             } else {
-        //                 $.each(json.parameters.post, function (key, value) {
-        //                     $("#kontakt #" + key)
-        //                         .closest(".field")
-        //                         .find(".error-post")
-        //                         .text(value);
-        //                 });
-        //             }
-        //
-        //             $("#kontakt .spiner").hide().prev().show();
-        //         },
-        //         error: function (x, t, m) {
-        //             console.log(x);
-        //             console.log(t);
-        //             console.log(m);
-        //         },
-        //     });
-        //     return false;
-        // });
     },
 
     onChange: function () {
@@ -594,24 +497,6 @@ var starter = {
             .addClass("no-value");
 
         $(".textarea:not(:empty)").addClass("valid");
-
-        // $(".checkbox")
-        //     .parent()
-        //     .find("~ .error:not(:empty)")
-        //     .siblings(".label")
-        //     .find(".checkbox")
-        //     .addClass("invalid");
-
-        // $(".select").find('option[value=""]:checked').parent().addClass("empty");
-
-        // $("#buy_at").datepicker({
-        //     minDate: new Date(2021, 9, 18),
-        //     maxDate: new Date(2022, 0, 31),
-        //     dateFormat: "dd-mm-yy",
-        //     onSelect: function (value, date) {
-        //         $(this).removeClass("invalid").addClass("valid");
-        //     },
-        // });
     },
 
     validator: {

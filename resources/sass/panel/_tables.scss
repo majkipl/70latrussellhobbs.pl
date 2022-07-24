@@ -15,8 +15,26 @@
     margin-top: 0;
 }
 
-table.item.show.data {
-}
+//table.item.icon.data {
+//    tr {
+//        &.correct td {
+//            background-color: rgba(0, 255, 0, 0.2);
+//        }
+//
+//        &.incorrect td {
+//            background-color: rgba(255, 0, 0, 0.2);
+//        }
+//
+//        > td {
+//            padding: 5px 15px 5px 0;
+//
+//            &:first-child {
+//                min-width: 150px;
+//                font-weight: 700;
+//            }
+//        }
+//    }
+//}
 
 table.item.show.data tr.correct td {
     background-color: rgba(0, 255, 0, 0.2);
@@ -53,7 +71,8 @@ table.item.show.data tr > td:first-child {
 }
 
 .bt-table {
-    .show {
+    .icon {
         color: $dark-gray;
+        text-decoration: none;
     }
 }
