@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
         $dataJson = json_decode($jsonData, true);
 
         foreach ($dataJson as $code => $item) {
-            $data[] = ['name' => $item['title'], 'code' => $code, 'collection_id' => Collection::where('name', $item['collection'])->first()->id];
+            $data[] = ['name' => $item['title'], 'code' => $code, 'collection_id' => Collection::where('slug', $item['collection'])->first()->id];
         }
 
         Product::insert($data);

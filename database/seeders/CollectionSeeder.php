@@ -17,10 +17,10 @@ class CollectionSeeder extends Seeder
     {
         $data = [];
 
-        $data[] = ['name' => 'news'];
-        $data[] = ['name' => 'breakfast'];
-        $data[] = ['name' => 'cooking'];
-        $data[] = ['name' => 'ironing'];
+        $data[] = ['name' => 'Nowości', 'slug' => 'nowosci'];
+        $data[] = ['name' => 'Produkty śniadaniowe', 'slug' => 'produkty-sniadaniowe'];
+        $data[] = ['name' => 'Produkty do gotowania', 'slug' => 'produkty-do-gotowania'];
+        $data[] = ['name' => 'Prasowanie', 'slug' => 'prasowanie'];
 
         Collection::insert($data);
     }
