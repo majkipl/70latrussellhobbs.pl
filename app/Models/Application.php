@@ -50,6 +50,11 @@ class Application extends Model
         return $this->belongsTo(Product::class, 'product_2_id', 'id');
     }
 
+    public function collection()
+    {
+        return $this->belongsTo(Collection::class);
+    }
+
     /**
      * @param $query
      * @param $search

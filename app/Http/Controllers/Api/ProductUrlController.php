@@ -12,11 +12,7 @@ class ProductUrlController extends Controller
 {
     public function urls(string $productCode)
     {
-        //todo: add cache
-        $urls = ProductUrl::with('product')
-                    ->whereHas('product', function ($query) use ($productCode) {
-                        $query->where('code', '=', $productCode);
-                    })->pluck('url');
+        $urls = ProductUrl::getByProductCode($productCode);
 
         return response()->json([
             'total' => $urls->count(),

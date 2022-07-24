@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\BreakfastController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CookingController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\IroningController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\Panel\PanelController;
+use App\Http\Controllers\Panel\ProductController;
 use App\Http\Controllers\ThxController;
 use App\Http\Middleware\VerifyCsrfTokenForFormSave;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +37,26 @@ Route::get('/dodaj-zgloszenie', [ApplicationController::class, 'index'])->name('
 Route::post('/dodaj-zgloszenie/zapisz', [ApplicationController::class, 'store'])->middleware(VerifyCsrfTokenForFormSave::class)->name('form.save');
 Route::get('/dodaj-zgloszenie/dziekujemy/{id}', [ThxController::class, 'index'])->name('thx.app');
 
-Route::get('/produkty-sniadaniowe', [BreakfastController::class, 'index'])->name('products.breakfast');
-Route::get('/prasowanie', [IroningController::class, 'index'])->name('products.ironing');
-Route::get('/produkty-do-gotowania', [CookingController::class, 'index'])->name('products.cooking');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/panel', [PanelController::class, 'index'])->name('panel');
+
+    // isAdmin // \App\Providers\AuthServiceProvider
+    Route::middleware(['can:isAdmin'])->group(function () {
+        Route::get('/panel/zgloszenia', [\App\Http\Controllers\Panel\ApplicationController::class, 'index'])->name('panel.apps');
+        Route::get('/panel/zgloszenie/{id}', [\App\Http\Controllers\Panel\ApplicationController::class, 'show'])->name('panel.app.show');
+
+        Route::get('/panel/kolekcja', [\App\Http\Controllers\Panel\CollectionController::class, 'index'])->name('panel.collection');
+        Route::get('/panel/kolekcja/dodaj', [\App\Http\Controllers\Panel\CollectionController::class, 'create'])->name('panel.collection.create');
+        Route::get('/panel/kolekcja/zmien/{collection}', [\App\Http\Controllers\Panel\CollectionController::class, 'edit'])->name('panel.collection.edit');
+        Route::get('/panel/kolekcja/{collection}', [\App\Http\Controllers\Panel\CollectionController::class, 'show'])->name('panel.collection.show');
+
+
+        Route::get('/panel/produkt', [ProductController::class, 'index'])->name('panel.product');
+        Route::get('/panel/produkt/dodaj', [ProductController::class, 'create'])->name('panel.product.create');
+        Route::get('/panel/produkt/zmien/{product}', [ProductController::class, 'edit'])->name('panel.product.edit');
+        Route::get('/panel/produkt/{product}', [ProductController::class, 'show'])->name('panel.product.show');
+
+    });
+});
+
+Route::get('/{slug}', [CollectionController::class, 'show'])->name('products.collection');

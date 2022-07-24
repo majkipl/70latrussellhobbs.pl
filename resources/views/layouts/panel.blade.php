@@ -20,6 +20,8 @@
     <!-- Scripts -->
     {{--    @vite(['resources/sass/app.scss', 'resources/js/panel.js'])--}}
     @vite(['resources/sass/panel.scss'])
+
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 </head>
 <body class="panel">
 <div id="app">

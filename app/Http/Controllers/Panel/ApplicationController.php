@@ -18,9 +18,6 @@ class ApplicationController extends Controller
      */
     public function index(): View
     {
-//        $applications = Application::all();
-
-
         return view('panel/application/index');
     }
 

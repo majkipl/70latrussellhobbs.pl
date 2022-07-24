@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 </head>
 
 <body>
