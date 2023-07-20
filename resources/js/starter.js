@@ -97,7 +97,6 @@ var starter = {
 
     onChange: function () {
         $(document).on('change', '.input, .textarea, .checkbox', function () {
-            console.log('onChange');
             const item = $(this);
             const value = $(this).val().trim();
             const name = $(this).attr('name');
@@ -207,8 +206,6 @@ var starter = {
 
     onSubmit: function () {
         $(document).on('submit', '#kontakt form', function () {
-            console.log('#kontakt form');
-
             const fields = starter.getFields($(this).closest('form'));
             const url = $(this).closest('form').attr('action');
 
@@ -221,20 +218,15 @@ var starter = {
                 },
                 data: fields,
             }).then(function (response) {
-                console.log(response);
-
                 $("#kontakt h2").html(response.data.results.message);
                 $("#kontakt #form").hide();
             }).catch(function (error) {
                 $(`.error-post`).text('');
                 if (error.response) {
-                    console.log('error.response');
-
                     Object.keys(error.response.data.errors).map((item) => {
                         $(`.error-${item}`).text(error.response.data.errors[item][0]);
                     });
                 } else if (error.request) {
-                    console.log('error.request');
                     // The request was made but no response was received
                     // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
                     // http.ClientRequest in node.js
@@ -265,13 +257,10 @@ var starter = {
             }).catch(function (error) {
                 $(`.error-post`).text('');
                 if (error.response) {
-                    console.log('error.response');
-
                     Object.keys(error.response.data.errors).map((item) => {
                         $(`.error-${item}`).text(error.response.data.errors[item][0]);
                     });
                 } else if (error.request) {
-                    console.log('error.request');
                     // The request was made but no response was received
                     // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
                     // http.ClientRequest in node.js
@@ -420,8 +409,6 @@ var starter = {
 
     autoscroll: {
         init: function () {
-            console.log('AutoScroll');
-
             starter.scrollOrLink(window.location.pathname);
         },
 
@@ -440,11 +427,7 @@ var starter = {
     },
 
     scrollOrLink: function (element) {
-        console.log(element);
-
         var attri = starter.autoscroll.getElementDomByURL(element);
-
-        console.log(attri);
 
         if (attri !== false && $(attri).length > 0) {
             setTimeout(function () {

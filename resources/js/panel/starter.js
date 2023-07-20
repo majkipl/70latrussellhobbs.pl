@@ -1,10 +1,6 @@
 let event;
 let height;
 
-// $.fn.hasAttr = function (name) {
-//     return this.attr(name) !== undefined;
-// };
-
 const starter = {
     _var: {},
 
@@ -29,12 +25,6 @@ const starter = {
     },
 
     onClick: function () {
-        /*
-		    $('selector').click(function(){
-
-			});
-		*/
-
         $(document).on('click', '.bt-table .remove', function () {
             const fields = {};
             const url = $(this).attr('href') + '/' + $(this).data('id');
@@ -55,19 +45,15 @@ const starter = {
                     headers: headers,
                     data: fields,
                 }).then(function (response) {
-                    // console.log('response');
-                    // window.location = response.data.results.url;
                     $('.bt-table').bootstrapTable('refresh');
                 }).catch(function (error) {
                     $(`.error-post`).text('');
                     if (error.response) {
-                        console.log('error.response');
 
                         Object.keys(error.response.data.errors).map((item) => {
                             $(`.error-${item}`).text(error.response.data.errors[item][0]);
                         });
                     } else if (error.request) {
-                        console.log('error.request');
                         // The request was made but no response was received
                         // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
                         // http.ClientRequest in node.js
@@ -84,8 +70,6 @@ const starter = {
     },
 
     onSubmit: function () {
-        console.log('onSubmit');
-
         $(document).on('submit', 'form.save', function () {
             const fields = starter.getFields($(this));
             const url = $(this).attr('action');
@@ -105,18 +89,14 @@ const starter = {
                 headers: headers,
                 data: fields,
             }).then(function (response) {
-                // console.log('response');
                 window.location = response.data.results.url;
             }).catch(function (error) {
                 $(`.error-post`).text('');
                 if (error.response) {
-                    console.log('error.response');
-
                     Object.keys(error.response.data.errors).map((item) => {
                         $(`.error-${item}`).text(error.response.data.errors[item][0]);
                     });
                 } else if (error.request) {
-                    console.log('error.request');
                     // The request was made but no response was received
                     // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
                     // http.ClientRequest in node.js
@@ -135,8 +115,6 @@ const starter = {
     },
 
     formStyled: function () {
-        console.log('formStyled');
-
         $(".input")
             .find("~ .error:not(:empty)")
             .siblings(".input")
