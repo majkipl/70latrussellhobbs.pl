@@ -46,7 +46,6 @@ class ShopSeeder extends Seeder
         $data[] = ['name' => 'RTV EURO AGD'];
         $data[] = ['name' => 'ZADOWOLENIE.PL'];
 
-
         Shop::insert($data);
     }
 }

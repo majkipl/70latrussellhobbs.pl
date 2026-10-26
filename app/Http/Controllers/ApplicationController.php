@@ -60,7 +60,6 @@ class ApplicationController extends Controller
                 Response::HTTP_OK
             );
         } catch (Exception $e) {
-
             return response()->json(
                 [
                     'errors' => [

@@ -27,17 +27,17 @@ Route::get('/product/url/{id}', [ProductUrlController::class, 'urls'])->name('ap
 
 //todo: ograniczyć api tylko do zalogowanych adminów
 
-//Route::middleware(UnauthorizedJsonResponse::class)->group(function () {
-Route::get('/applications', [ApplicationController::class, 'index'])->name('api.app');
+Route::middleware(UnauthorizedJsonResponse::class)->group(function () {
+    Route::get('/applications', [ApplicationController::class, 'index'])->name('api.app');
 
-Route::get('/collection', [CollectionController::class, 'index'])->name('api.collection');
-Route::post('/collection', [CollectionController::class, 'add'])->name('api.collection.add');
-Route::put('/collection', [CollectionController::class, 'update'])->name('api.collection.update');
-Route::delete('/collection/{collection}', [CollectionController::class, 'delete'])->name('api.collection.delete');
+    Route::get('/collection', [CollectionController::class, 'index'])->name('api.collection');
+    Route::post('/collection', [CollectionController::class, 'add'])->name('api.collection.add');
+    Route::put('/collection', [CollectionController::class, 'update'])->name('api.collection.update');
+    Route::delete('/collection/{collection}', [CollectionController::class, 'delete'])->name('api.collection.delete');
 
-Route::get('/product', [ProductController::class, 'index'])->name('api.product');
-Route::post('/product', [ProductController::class, 'add'])->name('api.product.add');
-Route::put('/product', [ProductController::class, 'update'])->name('api.product.update');
-Route::delete('/product/{product}', [ProductController::class, 'delete'])->name('api.product.delete');
-//});
+    Route::get('/product', [ProductController::class, 'index'])->name('api.product');
+    Route::post('/product', [ProductController::class, 'add'])->name('api.product.add');
+    Route::put('/product', [ProductController::class, 'update'])->name('api.product.update');
+    Route::delete('/product/{product}', [ProductController::class, 'delete'])->name('api.product.delete');
+});
 

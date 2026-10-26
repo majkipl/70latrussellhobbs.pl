@@ -16,19 +16,17 @@
 
             <x-forms.input.text name="city" required="required" max="128" placeholder="Miasto"/>
 
-            <x-forms.input.email name="email" required="required" max="255" placeholder="Adres e-mail"
-                                 class="offset-lg-1"/>
+            <x-forms.input.email name="email" required="required" max="255" placeholder="Adres e-mail" class="offset-lg-1"/>
+
             <x-forms.input.text name="phone" required="required" max="32" placeholder="Telefon"/>
 
-            <x-forms.select name="shop" required="required" placeholder="Sklep, w którym dokonano zakupu"
-                            class="col-lg-10 offset-lg-1" :items="$shops"/>
+            <x-forms.select name="shop" required="required" placeholder="Sklep, w którym dokonano zakupu" class="col-lg-10 offset-lg-1" :items="$shops"/>
 
             <x-forms.input.file name="img_receipt" required="required" class="offset-lg-3">
                 dodaj zdjęcie dowodu zakupu
             </x-forms.input.file>
 
-            <x-forms.select name="product_1" required="required" placeholder="Zakupiony produkt"
-                            class="col-lg-10 offset-lg-1" :items="$products"/>
+            <x-forms.select name="product_1" required="required" placeholder="Zakupiony produkt" class="col-lg-10 offset-lg-1" :items="$products"/>
 
             <x-forms.input.file name="img_ean_1" required="required" class="offset-lg-3">
                 dodaj zdjęcie kodu EAN
@@ -38,21 +36,17 @@
                 <span>chcę dodać drugi produkt</span>
             </x-forms.input.checkbox>
 
-            <x-forms.select name="product_2" placeholder="Zakupiony produkt"
-                            class="col-lg-10 offset-lg-1 field-product-2" :items="$products"/>
+            <x-forms.select name="product_2" placeholder="Zakupiony produkt" class="col-lg-10 offset-lg-1 field-product-2" :items="$products"/>
 
             <x-forms.input.file name="img_ean_2" class="offset-lg-3 field-product-2">
                 dodaj zdjęcie kodu EAN
             </x-forms.input.file>
 
-            <x-forms.select name="whence" required="required" placeholder="Skąd wiesz o promocji?"
-                            class="col-lg-10 offset-lg-1" :items="$whences"/>
+            <x-forms.select name="whence" required="required" placeholder="Skąd wiesz o promocji?" class="col-lg-10 offset-lg-1" :items="$whences"/>
 
-            <x-forms.input.text name="where_other" max="255" placeholder="Inne"
-                                class="offset-lg-1 col-lg-10 hidden"/>
+            <x-forms.input.text name="where_other" max="255" placeholder="Inne" class="offset-lg-1 col-lg-10 hidden"/>
 
-            <x-forms.select name="type_shop" required="required" placeholder="Rodzaj sklepu"
-                            class="col-lg-10 offset-lg-1" :items="$types"/>
+            <x-forms.select name="type_shop" required="required" placeholder="Rodzaj sklepu" class="col-lg-10 offset-lg-1" :items="$types"/>
 
             <x-forms.input.checkbox name="legal_0">
                 <span>Zaznacz wszystkie zgody</span>

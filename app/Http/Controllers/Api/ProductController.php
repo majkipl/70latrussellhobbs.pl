@@ -45,7 +45,6 @@ class ProductController extends Controller
     {
         DB::beginTransaction();
 
-
         try {
             $product = new Product($request->validated());
             $params = $request->all();

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Services\ContactService;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class ContactController extends Controller
@@ -31,9 +30,6 @@ class ContactController extends Controller
                 Response::HTTP_OK
             );
         } catch (Exception $e) {
-
-            dd($e);
-
             return response()->json(
                 [
                     'errors' => [
@@ -46,6 +42,5 @@ class ContactController extends Controller
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
-//        dd('ContactController::send');
     }
 }

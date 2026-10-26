@@ -39,7 +39,6 @@ class Collection extends Model
                         'id' => null,
                         'name' => null,
                         'slug' => null,
-//                        default => null,
                     };
                 }
             });
@@ -63,7 +62,6 @@ class Collection extends Model
                     'id' => null,
                     'name' => null,
                     'slug' => null,
-//                    default => null,
                 };
             }
         }
